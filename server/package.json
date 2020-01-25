@@ -13,7 +13,17 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
     "sequelize": "^5.21.3",
     "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }
