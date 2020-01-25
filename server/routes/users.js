@@ -19,15 +19,15 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:userId', async (req, res, next) => {
   return res.send({
-    message: 'implement'
+    message: 'implement',
   })
 });
 
 // posting to users creates a new user
 router.post('/', async (req, res, next) => {
-return res.send({
-	message: 'implement'
-});
+  return res.send({
+    message: 'implement',
+  });
 });
 
 
