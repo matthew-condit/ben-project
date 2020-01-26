@@ -1,4 +1,23 @@
+Routing documentation:
+https://reach.tech/router
+
+Hooks Intro:
+https://reactjs.org/docs/hooks-intro.html
+
+
+
+
+
+
+
+
+
+
+
+
+// everything below this was auto-created
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
