@@ -1,0 +1,23 @@
+{
+  "name": "ben-project",
+  "version": "1.0.0",
+  "description": "Going to make a reddit/hacker news clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm start --prefix ./server\"  \"npm start --prefix ./client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-condit/ben-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-condit/ben-project/issues"
+  },
+  "homepage": "https://github.com/matthew-condit/ben-project#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  }
+}

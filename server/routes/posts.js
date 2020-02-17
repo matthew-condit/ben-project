@@ -7,8 +7,8 @@ const { Post } = require('../db/index');
 // get all posts
 router.get('/', async (req, res, next) => {
   try {
-    const users = await Post.findAll();
-    res.send(users);
+    const posts = await Post.findAll();
+    res.send(posts);
   } catch (e) {
     res.status(500).send({
       message: 'Internal server error',

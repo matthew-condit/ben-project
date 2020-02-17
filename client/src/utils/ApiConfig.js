@@ -1,0 +1,26 @@
+import axios from 'axios';
+// Axios Docs: https://github.com/axios/axios
+
+export const APIConfig = {
+  apiBase: 'http://localhost:5000',
+  getApiBase: function() {
+    return this.apiBase;
+  },
+  setApiBase: function(newBase) {
+    this.apiBase = newBase;
+  },
+  get: function(url, params) {
+    return axios.get(`${this.getApiBase()}${url}`, {
+      params,
+    });
+  },
+  post: function(url, params) {
+    axios.post(`${this.getApiBase()}${url}`, {
+      params,
+    });
+  },
+  urls: {
+    allPosts: '/posts/',
+    createPost: '/posts/',
+  },
+};

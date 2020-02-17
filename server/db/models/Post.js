@@ -5,11 +5,14 @@ const { db } = require('../index');
 const Post = db.define(
   'post',
   {
-    // TODO: add fields here
-    // username: {
-    //   type: Sequelize.STRING,
-    //   allowNull: false,
-    // },
+    title: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    body: {
+      type: Sequelize.TEXT,
+      allowNull: false,
+    },
   },
   {},
 );
@@ -18,7 +21,9 @@ const Post = db.define(
 const initPosts = () => {
   Post.sync({ force: true }).then(() =>
     Post.create({
-      username: 'bcondit',
+      title: 'Testing 1 2',
+      body:
+        "This is a test body.  This can get really long but for now it's short",
     }),
   );
 };
