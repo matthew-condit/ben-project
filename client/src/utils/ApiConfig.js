@@ -15,12 +15,14 @@ export const APIConfig = {
     });
   },
   post: function(url, params) {
-    axios.post(`${this.getApiBase()}${url}`, {
+    return axios.post(`${this.getApiBase()}${url}`, {
       params,
     });
   },
   urls: {
     allPosts: '/posts/',
     createPost: '/posts/',
+    postDetails: '/posts/',
+    createPostDetailsAPI: (postId) => `/posts/${postId}`,
   },
 };

@@ -17,17 +17,29 @@ router.get('/', async (req, res, next) => {
 });
 
 // get post by ID
-router.get('/:userId', async (req, res, next) => {
-  return res.send({
-    message: 'implement',
-  });
+router.get('/:postId', async (req, res, next) => {
+  try {
+    const posts = await Post.findByPk(req.params.postId);
+    res.send(posts);
+  } catch (e) {
+    res.status(500).send({
+      message: 'Internal server error',
+    });
+  }
 });
 
 // create new post
 router.post('/', async (req, res, next) => {
-  return res.send({
-    message: 'implement',
-  });
+  console.error(req.body.params);
+  try {
+    const paramPost = req.body.params.post;
+    const posts = await Post.create(paramPost);
+    res.send(posts);
+  } catch (e) {
+    res.status(500).send({
+      message: 'Internal server error',
+    });
+  }
 });
 
 module.exports = router;
