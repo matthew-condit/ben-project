@@ -19,10 +19,17 @@ export const APIConfig = {
       params,
     });
   },
+  delete: function(url, params) {
+    return axios.delete(`${this.getApiBase()}${url}`, {
+      params,
+    });
+  },
   urls: {
     allPosts: '/posts/',
     createPost: '/posts/',
     postDetails: '/posts/',
     createPostDetailsAPI: (postId) => `/posts/${postId}`,
+    deletePost: '/posts/',
+    createPostDeleteAPI: (postId) => `/posts/${postId}`,
   },
 };

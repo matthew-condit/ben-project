@@ -42,4 +42,20 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+router.delete('/:postId', async (req, res, next) => {
+  try {
+    const post = await Post.destroy({
+      where: {
+        id: req.params.postId,
+      },
+    }).then((successful) =>
+      successful ? res.sendStatus(200) : res.sendStatus(500),
+    );
+  } catch (e) {
+    res.status(500).send({
+      message: 'Internal server error',
+    });
+  }
+});
+
 module.exports = router;
