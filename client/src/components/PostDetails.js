@@ -13,13 +13,13 @@ const PostDetailsPageWrapper = styled.div`
 const Title = styled.h1``;
 const Body = styled.div``;
 const DeletePostButton = ({ postId }) => {
-  const onDeleteClicked = () => {
-    const p = APIConfig.delete(APIConfig.urls.createPostDeleteAPI(postId)).then(
-      (successful) => {
-        navigate(Routes.home);
-      },
-    );
-    console.error(p);
+  const onDeleteClicked = async () => {
+    try {
+      await APIConfig.delete(APIConfig.urls.createPostDeleteAPI(postId));
+      navigate(Routes.home);
+    } catch (e) {
+      // show some sort of error banner
+    }
   };
   return <button onClick={onDeleteClicked}>Delete Post</button>;
 };
