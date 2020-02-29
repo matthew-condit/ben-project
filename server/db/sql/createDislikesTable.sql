@@ -1,5 +1,0 @@
-CREATE TABLE dislikes (
-  ID SERIAL PRIMARY KEY,
-  title VARCHAR,
-  body VARCHAR
-);

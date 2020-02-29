@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS sessions CASCADE;
+
+CREATE TABLE sessions (
+  id SERIAL PRIMARY KEY,
+  userId INTEGER REFERENCES users(id),
+);

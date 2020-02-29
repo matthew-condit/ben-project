@@ -1,27 +1,11 @@
-// const Sequelize = require('sequelize');
+const { db } = require('../index');
 
-// const { db } = require('../index');
+const UserSql = require('../sql/users/UserSql');
 
-// const User = db.define(
-//   'user',
-//   {
-//     username: {
-//       type: Sequelize.STRING,
-//       allowNull: false,
-//     },
-//   },
-//   {},
-// );
-
-// // init code
-// const initUsers = () => {
-//   User.sync({ force: true }).then(() =>
-//     User.create({
-//       username: 'bcondit',
-//     }),
-//   );
-// };
-
-// // Comment out
-// initUsers();
-// module.exports = User;
+const getUserById = (id) => db.one(UserSql.getUserById, { id });
+const createUser = (userObj) => db.one(UserSql.createUser, userObj);
+const deleteUser = (id) => {};
+module.exports = {
+  createUser,
+  deleteUser,
+};

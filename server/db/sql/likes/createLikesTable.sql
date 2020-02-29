@@ -1,0 +1,6 @@
+
+DROP TABLE IF EXISTS likes CASCADE;
+CREATE TABLE likes (
+  userId INTEGER REFERENCES users(id),
+  postId INTEGER REFERENCES posts(id)
+);

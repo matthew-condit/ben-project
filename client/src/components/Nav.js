@@ -28,6 +28,8 @@ const Nav = () => {
       <StyledLink to={Routes.home}>Most Recent</StyledLink>
       <StyledLink to={Routes.home}>Top Voted</StyledLink>
       <StyledLink to={Routes.createPost}>Create a new post</StyledLink>
+      <StyledLink to={Routes.register}>Register</StyledLink>
+      <StyledLink to={Routes.login}>Login</StyledLink>
       {/* <StyledLink to={Routes.postDetails}>details</StyledLink> */}
     </NavWrapper>
   );

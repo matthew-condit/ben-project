@@ -2,15 +2,22 @@ const { createDb } = require('../createDB');
 const { qf } = require('./qf');
 
 const dbSql = qf('./createDB.sql');
-const createPostTable = qf('./posts/createPostTable.sql');
+const queries = [
+  qf('./posts/createPostTable.sql'),
+  qf('./users/createUserTable.sql'),
+  qf('./likes/createLikesTable.sql'),
+  qf('./likes/createDislikesTable.sql'),
+  qf('./comments/createCommentsTable.sql'),
+];
 
 const { db } = createDb();
 
-const actions = [
-  // async () => await db.any(dbSql),
-  async () => await db.any(createPostTable),
-];
+const actions = queries.map((q) => async () => await db.any(q));
 
-const syncLoop = async (array) => array.forEach(async (fn) => await fn());
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
 
-syncLoop(actions);
+asyncForEach(actions, async (f) => await f());

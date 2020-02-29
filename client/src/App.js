@@ -8,6 +8,8 @@ import PostDetails from './components/PostDetails';
 import CreatePost from './components/CreatePost';
 import Nav from './components/Nav';
 import { GlobalStyles } from './GlobalStyles';
+import Register from './components/Register';
+import Login from './components/Login';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -25,6 +27,8 @@ const App = () => {
         <PostList path={Routes.home} />
         <PostDetails path={Routes.postDetails} />
         <CreatePost path={Routes.createPost} />
+        <Register path={Routes.register} />
+        <Login path={Routes.login} />
       </Router>
     </AppWrapper>
   );
