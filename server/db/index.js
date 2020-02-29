@@ -1,9 +1,5 @@
-const Sequelize = require('sequelize');
-
-const db = new Sequelize({
-  dialect: 'sqlite',
-  storage: './database.sqlite',
-});
+const { createDb } = require('./createDb');
+const { db } = createDb();
 
 module.exports = {};
 module.exports.db = db;

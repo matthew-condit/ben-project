@@ -1,49 +1,19 @@
-const Sequelize = require('sequelize');
-
 const { db } = require('../index');
 
-const User = require('./User');
-const Post = db.define(
-  'post',
-  {
-    title: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    body: {
-      type: Sequelize.TEXT,
-      allowNull: false,
-    },
-    // upVotes: {
-    //   type: Sequelize.ARRAY(Sequelize.),
-    //   allowNull: false,
-    // },
-    // downVotes: {
-    //   type: Sequelize.ARRAY,
-    //   allowNull: false,
-    // },
-  },
-  {},
-);
+const PostSql = require('../sql/posts/PostSql');
 
-Post.belongsTo(User);
-User.hasMany(Post);
-// init code
-const initPosts = () => {
-  Post.sync({ force: true }).then(() => {
-    Post.create({
-      title: 'Testing 1 2',
-      body:
-        "This is a test body.  This can get really long but for now it's short",
-    });
-    Post.create({
-      title: 'hey there',
-      body:
-        "This is a test body.  This can get really long but for now it's short",
-    });
-  });
+const getAllPosts = () => db.manyOrNone(PostSql.getAllPosts);
+
+const getById = (id) => db.oneOrNone(PostSql.getById, { id });
+
+const deleteById = (id) => db.oneOrNone(PostSql.deleteById, { id });
+
+const createPost = (postObject) =>
+  db.oneOrNone(PostSql.createNewPost, postObject);
+
+module.exports = {
+  getAllPosts,
+  getById,
+  deleteById,
+  createPost,
 };
-
-// Comment out
-initPosts();
-module.exports = Post;

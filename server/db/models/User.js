@@ -1,27 +1,27 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 
-const { db } = require('../index');
+// const { db } = require('../index');
 
-const User = db.define(
-  'user',
-  {
-    username: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-  },
-  {},
-);
+// const User = db.define(
+//   'user',
+//   {
+//     username: {
+//       type: Sequelize.STRING,
+//       allowNull: false,
+//     },
+//   },
+//   {},
+// );
 
-// init code
-const initUsers = () => {
-  User.sync({ force: true }).then(() =>
-    User.create({
-      username: 'bcondit',
-    }),
-  );
-};
+// // init code
+// const initUsers = () => {
+//   User.sync({ force: true }).then(() =>
+//     User.create({
+//       username: 'bcondit',
+//     }),
+//   );
+// };
 
-// Comment out
-initUsers();
-module.exports = User;
+// // Comment out
+// initUsers();
+// module.exports = User;

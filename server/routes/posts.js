@@ -7,9 +7,10 @@ const { Post } = require('../db/index');
 // get all posts
 router.get('/', async (req, res, next) => {
   try {
-    const posts = await Post.findAll();
+    const posts = await Post.getAllPosts();
     res.send(posts);
   } catch (e) {
+    console.error(e);
     res.status(500).send({
       message: 'Internal server error',
     });
@@ -19,8 +20,8 @@ router.get('/', async (req, res, next) => {
 // get post by ID
 router.get('/:postId', async (req, res, next) => {
   try {
-    const posts = await Post.findByPk(req.params.postId);
-    res.send(posts);
+    const post = await Post.getById(req.params.postId);
+    res.send(post);
   } catch (e) {
     res.status(500).send({
       message: 'Internal server error',
@@ -33,9 +34,10 @@ router.post('/', async (req, res, next) => {
   console.error(req.body.params);
   try {
     const paramPost = req.body.params.post;
-    const posts = await Post.create(paramPost);
+    const posts = await Post.createPost(paramPost);
     res.send(posts);
   } catch (e) {
+    console.error(e);
     res.status(500).send({
       message: 'Internal server error',
     });
@@ -44,14 +46,10 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:postId', async (req, res, next) => {
   try {
-    const post = await Post.destroy({
-      where: {
-        id: req.params.postId,
-      },
-    }).then((successful) =>
-      successful ? res.sendStatus(200) : res.sendStatus(500),
-    );
+    await Post.deleteById(req.params.postId);
+    res.sendStatus(200);
   } catch (e) {
+    console.error(e);
     res.status(500).send({
       message: 'Internal server error',
     });

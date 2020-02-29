@@ -1,0 +1,6 @@
+
+CREATE TABLE likes (
+  ID SERIAL PRIMARY KEY,
+  title VARCHAR,
+  body VARCHAR
+);
